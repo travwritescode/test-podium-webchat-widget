@@ -1,6 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
-from utility import wait_for_element_to_be_visible, open_widget
+from utils import wait_for_element_to_be_visible, open_widget
 
 # Test - No name
 def test_name_required(browser):
@@ -88,4 +88,3 @@ def test_search_returns_best_result(browser):
 
     location_name = wait_for_element_to_be_visible(browser, By.CLASS_NAME, 'SendSmsPage__CurrentLocationName')
     assert location_name.text == 'Scoreboard Sports - Orem'
-
