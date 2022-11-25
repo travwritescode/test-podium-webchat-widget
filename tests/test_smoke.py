@@ -1,12 +1,10 @@
 from selenium.webdriver.common.by import By
-from utility import setUp, tearDown, wait_for_element_to_be_visible, open_widget
+from utility import wait_for_element_to_be_visible, open_widget
 
 
 # Smoke Tests
 # Test - the web page loads and the widget can be opened and closed
-def test_widget_can_be_opened_and_closed():
-    browser = setUp()
-
+def test_widget_can_be_opened_and_closed(browser):
     # I open the test website
     browser.get("https://demo.podium.tools/qa-webchat-lorw/")
     ## Switch to the iframe that the widget lives on
@@ -35,13 +33,9 @@ def test_widget_can_be_opened_and_closed():
     widget.click()
     assert len(browser.find_elements(By.NAME, "Search Locations")) < 1
 
-    tearDown(browser)
-
 # Test - User input happy path
 # leave unfinished per requested spec
-def test_required_contact_fields_activate_send_button():
-    browser = setUp()
-
+def test_required_contact_fields_activate_send_button(browser):
     # I open the test website
     open_widget(browser)
 
@@ -51,8 +45,6 @@ def test_required_contact_fields_activate_send_button():
 
     wait_for_element_to_be_visible(browser, By.ID, 'ComposeMessage')
     # The "send" button should be disabled 
-
-    tearDown(browser)
 
 
 # Test - terms link works

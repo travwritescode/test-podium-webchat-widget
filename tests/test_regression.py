@@ -1,11 +1,9 @@
 import time
 from selenium.webdriver.common.by import By
-from utility import setUp, tearDown, wait_for_element_to_be_visible, open_widget
+from utility import wait_for_element_to_be_visible, open_widget
 
 # Test - No name
-def test_name_required():
-    browser = setUp()
-
+def test_name_required(browser):
     # I open the test website
     open_widget(browser)
 
@@ -26,12 +24,8 @@ def test_name_required():
     error_message = wait_for_element_to_be_visible(browser, By.CLASS_NAME, 'TextInput__TextInputError')
     assert error_message.text == 'Name is required'
 
-    tearDown(browser)
-
 # Test - No phone number
-def test_phone_number_required():
-    browser = setUp()
-
+def test_phone_number_required(browser):
     # I open the test website
     open_widget(browser)
 
@@ -51,13 +45,9 @@ def test_phone_number_required():
     error_message = wait_for_element_to_be_visible(browser, By.CLASS_NAME, 'TextInput__TextInputError')
     assert error_message.text == 'Mobile phone is required'
 
-    tearDown(browser)
-
     
 # Test - No message
-def test_message_required():
-    browser = setUp()
-
+def test_message_required(browser):
     # I open the test website
     open_widget(browser)
 
@@ -77,15 +67,11 @@ def test_message_required():
     error_message = wait_for_element_to_be_visible(browser, By.CLASS_NAME, 'TextInput__TextInputError')
     assert error_message.text == 'Message is required'
 
-    tearDown(browser)
-
 
 # Test - searching shows best result at top of results
 # Should have a test case that fails (pressing enter 
 # clears search term but doesn't search)
-def test_search_returns_best_result():
-    browser = setUp()
-
+def test_search_returns_best_result(browser):
     # I open the test website
     open_widget(browser)
     search_reset = wait_for_element_to_be_visible(browser, By.CLASS_NAME, 'SearchInput__Reset')

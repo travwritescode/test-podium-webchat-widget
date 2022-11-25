@@ -1,21 +1,8 @@
 import time
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
 
 MAX_WAIT = 10
-
-def setUp():
-    options = webdriver.ChromeOptions()
-    options.headless = False
-    options.add_argument("--log-level=3")
-    browser = webdriver.Chrome(options=options)
-    browser.get("https://demo.podium.tools/qa-webchat-lorw/")
-
-    return browser
-
-def tearDown(browser):
-    browser.quit()
 
 def open_widget(browser):
     ## Switch to the iframe that the widget lives on
