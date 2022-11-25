@@ -26,13 +26,16 @@ satisfied. The regression tests break down into finer details testing more in de
    - Expected Behavior: When I am on the compose message window and I click the back arrow I should return to the search window.
    - Actual Behavior: When I click the back arrow, the window refreshes but remains on the compose message window.
 2. Pressing enter on location search window does not perform search
-   -  Expected Behavior: When I type a search term in the location search field and press enter, the location is searched and the best result is returned at the top of the search results
+   - Expected Behavior: When I type a search term in the location search field and press enter, the location is searched and the best result is returned at the top of the search results
    - Actual Behavior: When I type a search term in the location search field and press enter, the search field is cleared and the search is not performed
-3. Minor: Send button should be disabled until all required fields are filled
+3. Incomplete phone number is submittable
+   - Expected Behavior: I must fill in a complete, 10-digit phone number in order to submit a message.
+   - Actual Behavior: I am able to submit a message with a phone number containing only 9 digits
+4. Minor: Send button should be disabled until all required fields are filled
    - Expected Behavior: On the compose message window, the Send button is disabled until all required fields are filled
    - Actual Behavior: The Send button has a faded style but is still clickable
    - This is simply to maintain a consistent user experience
-4. Minor: Closing and reopening the widget resets progress
+5. Minor: Closing and reopening the widget resets progress
    - Expected Behavior: When I close and reopen the chat widget I should return to the screen I was previously on
    - Actual Behavior: When I close and reopen the chat widget my progress is reset
    - Expected behavior based on investigation of other chat widgets in use on other websites
