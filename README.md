@@ -10,6 +10,8 @@ satisfied. The regression tests break down into finer details testing more in de
    - The basic happy path test of filling out all required fields and submitting the form. I am leaving this one unfinishedaccording to the spec document.
 3. Use Terms Link Works
    - I am unsure of the compliance implications for this section being required or not, so I have included this test to ensurethe link to the use terms works.
+4. User Can Navigate Between Widget Windows
+   - This test verifies the user can get to and from each window on the widget
 
 ## Regression Tests
 1. Name Required
@@ -39,3 +41,15 @@ satisfied. The regression tests break down into finer details testing more in de
    - Expected Behavior: When I close and reopen the chat widget I should return to the screen I was previously on
    - Actual Behavior: When I close and reopen the chat widget my progress is reset
    - Expected behavior based on investigation of other chat widgets in use on other websites
+
+# Running the Tests
+I built these tests to run on Chrome. I don't have experience Dockerizing Selenium tests and the more I researched this the less I felt confident handing off a Dockerized test job. I have included steps for running these tests locally below:
+**Prerequisites:**
+- If you don't have Google Chrome installed, install it. Check your Chrome version by typing `chrome://system/` into the address bar in Chrome
+- Download the ChromeDriver version that is the same as your Chrome version from [this page](https://sites.google.com/chromium.org/driver/?pli=1)
+- Put ChromeDriver in your System's PATH. For Mac users the `/usr/local/bin` folder will work. For Windows the `C:\Windows` folder is good.
+**With the Repo**
+- Clone the repo
+- Open you terminal and navigate to the parent directory
+- Run pip install for requirements file: `pip install -r requirements.txt`
+- To execute the tests run: `pytest -v -s --reruns 3`. I encountered some flaky tests and use a pytest plugin to rerun failed tests 3 times.
