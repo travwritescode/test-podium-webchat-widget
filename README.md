@@ -8,10 +8,12 @@ satisfied. The regression tests break down into finer details testing more in de
    - This test is the most basic functionality, making sure the widget loads, it can be opened, and it can be closed.
 2. Happy Path
    - The basic happy path test of filling out all required fields and submitting the form. I am leaving this one unfinishedaccording to the spec document.
+   - This is a failing test on purpose representing an unfinished test case.
 3. Use Terms Link Works
    - I am unsure of the compliance implications for this section being required or not, so I have included this test to ensurethe link to the use terms works.
 4. User Can Navigate Between Widget Windows
    - This test verifies the user can get to and from each window on the widget
+   - This is a failing test due to a bug. Maintaining TDD principles I would leave this as a failing test until it is fixed on the development side.
 
 ## Regression Tests
 1. Name Required
@@ -53,3 +55,4 @@ I built these tests to run on Chrome. I don't have experience Dockerizing Seleni
   - Open you terminal and navigate to the parent directory
   - Run pip install for requirements file: `pip install -r requirements.txt`
   - To execute the tests run: `pytest -v -s --reruns 3`. I encountered some flaky tests and use a pytest plugin to rerun failed tests 3 times.
+  - I have included code for running the tests against Firefox in the file `conftest.py`. This is also where you may flip the boolean that controls headless execution.
