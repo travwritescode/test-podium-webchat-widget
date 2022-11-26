@@ -1,12 +1,19 @@
 import pytest
 from selenium import webdriver
 
-@pytest.fixture(scope='function')
+@pytest.fixture(params=['chrome', 'firefox'], scope='function')
 def browser():
-    options = webdriver.ChromeOptions()
-    options.headless = True
-    options.add_argument("--log-level=3")
-    browser = webdriver.Chrome(options=options)
+    chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.headless = True
+    chromeOptions.add_argument("--log-level=3")
+    browser = webdriver.Chrome(options=chromeOptions)
+
+    # Below code for Firefox testing
+    # firefoxOptions = webdriver.FirefoxOptions()
+    # firefoxOptions.headless = True
+    # firefoxOptions.add_argument("--log-level=3")
+    # browser = webdriver.Firefox()
+
     browser.get("https://demo.podium.tools/qa-webchat-lorw/")
 
     yield browser
