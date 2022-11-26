@@ -56,3 +56,5 @@ I built these tests to run on Chrome. I don't have experience Dockerizing Seleni
   - Run pip install for requirements file: `pip install -r requirements.txt`
   - To execute the tests run: `pytest -v -s --reruns 3`. I encountered some flaky tests and use a pytest plugin to rerun failed tests 3 times.
   - I have included code for running the tests against Firefox in the file `conftest.py`. This is also where you may flip the boolean that controls headless execution.
+
+At the end, we should expect 6 passing test cases and 2 failing test cases.
